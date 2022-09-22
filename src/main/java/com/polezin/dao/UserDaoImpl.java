@@ -1,6 +1,6 @@
 package com.polezin.dao;
 
-import com.polezin.entity.UserEntity;
+import com.polezin.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -18,8 +18,8 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public void saveUser(UserEntity userEntity) {
-        entityManager.persist(userEntity);
+    public void saveUser(User user) {
+        entityManager.persist(user);
     }
 
     @Override
@@ -28,17 +28,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(UserEntity userEntity) {
-        entityManager.merge(userEntity);
+    public void updateUser(User user) {
+        entityManager.merge(user);
     }
 
     @Override
-    public UserEntity getUser(Long id) {
-        return entityManager.find(UserEntity.class, id);
+    public User getUser(Long id) {
+        return entityManager.find(User.class, id);
     }
 
     @Override
-    public List<UserEntity> getAllUsers() {
-        return entityManager.createQuery("SELECT a FROM UserEntity a", UserEntity.class).getResultList();
+    public List<User> getAllUsers() {
+        return entityManager.createQuery("SELECT a FROM User a", User.class).getResultList();
     }
 }

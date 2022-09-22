@@ -1,14 +1,14 @@
 package com.polezin.servies;
 
 import com.polezin.dao.UserDao;
-import com.polezin.entity.UserEntity;
+import com.polezin.entity.User;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
@@ -18,27 +18,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(UserEntity userEntity) {
-        userDao.saveUser(userEntity);
+    @Transactional
+    public void saveUser(User user) {
+        userDao.saveUser(user);
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
 
     @Override
-    public void updateUser(UserEntity userEntity) {
-        userDao.updateUser(userEntity);
+    @Transactional
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 
     @Override
-    public UserEntity getUser(Long id) {
+    @Transactional
+    public User getUser(Long id) {
         return userDao.getUser(id);
     }
 
     @Override
-    public List<UserEntity> getAllUsers() {
+    @Transactional
+    public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 }

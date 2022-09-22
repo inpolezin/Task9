@@ -1,18 +1,18 @@
 package com.polezin.dao;
 
-import com.polezin.entity.UserEntity;
+import com.polezin.entity.User;
 
 import java.util.List;
 
 public interface UserDao {
 
-    void saveUser(UserEntity userEntity);
+    void saveUser(User user);
 
     void deleteUser(Long id);
 
-    void updateUser(UserEntity userEntity);
+    void updateUser(User user);
 
-    UserEntity getUser(Long id);
+    User getUser(Long id);
 
-    List<UserEntity> getAllUsers();
+    List<User> getAllUsers();
 }

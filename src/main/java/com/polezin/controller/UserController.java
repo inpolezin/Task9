@@ -1,6 +1,6 @@
 package com.polezin.controller;
 
-import com.polezin.entity.UserEntity;
+import com.polezin.entity.User;
 import com.polezin.servies.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,12 +24,12 @@ public class UserController {
 
     @GetMapping("/new")
     public String showAddUserPage(ModelMap modelMap) {
-        modelMap.addAttribute("user", new UserEntity());
+        modelMap.addAttribute("user", new User());
         return "users/new";
     }
 
     @PostMapping
-    public String saveUser(@ModelAttribute("user") UserEntity user) {
+    public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/users";
     }
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public String updateUser(@ModelAttribute("user") UserEntity user) {
+    public String updateUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/users";
     }
